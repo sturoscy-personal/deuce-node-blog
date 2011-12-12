@@ -1,0 +1,14 @@
+div#navigation
+	ul
+		li
+			a(href='/') Home | 
+		li
+			a(href='/about') About |
+		li
+			a(href='/register') Register | 
+		- if (!everyauth.loggedIn)
+			li
+				a(href='/login') Login
+		- else
+			li
+				a(href='/logout') Logout

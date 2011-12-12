@@ -1,0 +1,27 @@
+!!! 5
+html(lang="en")
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/grid.css ')
+		link(rel='stylesheet', href='/stylesheets/jquery.tweet.css')
+
+		block scripts
+			script(src='http://code.jquery.com/jquery-1.7.min.js')
+			script(src='/javascripts/featured-content.js')
+			script(src='/javascripts/jquery.tweet.js')
+			script
+				$(document).ready(function(){
+
+					// Twitter Widget
+					jQuery(function($) {
+						$("#tweets").tweet({
+							username: "sfttwit",
+							join_text: "auto",
+							avatar_size: 32,
+							count: 4	
+						});
+					});
+				});
+				
+	body!= body
