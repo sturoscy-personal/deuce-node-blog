@@ -5,11 +5,11 @@ div.container_12
 			- if (everyauth.loggedIn)
 				- if (everyauth.github)
 					h3 Hello #{everyauth.github.user.name}!
-					p Congratulations. You can now comment on the site. Please be nice!
+					p Congratulations. You can now comment on the site. Please be courteous and show some class!
 					p= JSON.stringify(everyauth.github)
 				- else if(everyauth.twitter)
 					h3 Hello #{everyauth.twitter.user.screen_name}!
-					p Congratulations. You can now comment on the site. Please be nice!
+					p Congratulations. You can now comment on the site. Please be courteous and show some class!
 					p= JSON.stringify(everyauth.twitter)
 				- else if (everyauth.password)
 					h3 Hello
@@ -20,7 +20,7 @@ div.container_12
 					form(action='/login', method='post')
 						input(type='text', name='username', value='username')
 						input(type='password', name='password', value='password')
-						input.button(type='image', src='images/form-login-button.gif' , name='image')
+						input.button(type='submit', value='')
 					p.italicize
 						a(href='/register') Register | 
 						a(href='/forgot') Forgot Password

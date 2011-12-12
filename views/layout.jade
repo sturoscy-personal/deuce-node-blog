@@ -22,6 +22,36 @@ html(lang="en")
 							count: 4	
 						});
 					});
+
+					// Login Form Behavior
+					// Username
+					$("#login-with-password input[name='username']:text").focusin(function() {
+						$(this).val("");
+					}).focusout(function() {
+						$(this).val("USERNAME");
+					});
+
+					// Password
+					$("#login-with-password input[name='password']:password").focusin(function() {
+						$(this).val("");
+					}).focusout(function() {
+						$(this).val("password");
+					});
+
+					// Register Form Behavior
+					// Username
+					$("#register #username input:text").focusin(function() {
+						$(this).val("");
+					}).focusout(function() {
+						$(this).val("username");
+					});
+
+					// Password
+					$("#register #password input:password").focusin(function() {
+						$(this).val("");
+					}).focusout(function() {
+						$(this).val("password");
+					});
 				});
 				
 	body!= body

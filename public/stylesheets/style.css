@@ -142,14 +142,53 @@ td {
 #body #user-column #twitter #twitter-header #tweets p {
   font-weight: normal;
 }
-#register h2 {
+#register-form {
+  margin-top: 100px;
+}
+#register-form #register-box {
+  background: #dadada;
+  border-top: 2px solid #ddd;
+  padding: 25px 15px 15px 15px;
+  width: 335px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 2px 2px 2px #c0c0c0;
+  -moz-box-shadow: 0px 2px 2px 2px #c0c0c0;
+  box-shadow: 0px 2px 2px 2px #c0c0c0;
+}
+#register-form #register img {
   margin-bottom: 15px;
 }
-#register form input {
-  border: 1px solid #455683;
+#register-form #register form label {
+  display: block;
   margin-bottom: 10px;
-  margin-top: 5px;
-  padding: 2.5px;
+  font-size: 2em;
+}
+#register-form #register form input {
+  border: 1px solid #455683;
+  height: 30px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 272px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+#register-form #register form input.button {
+  background: url("../images/form-register-button.gif") no-repeat;
+  border: none;
+  cursor: pointer;
+  width: 78px;
+}
+#register-form #register p {
+  margin: 0;
+}
+#register-form #register p a {
+  color: #455863;
 }
 #login-form {
   margin-top: 100px;
@@ -186,14 +225,13 @@ td {
   border-radius: 2px;
 }
 #login-form #login-with-password form input.button {
+  background: url("../images/form-login-button.gif") no-repeat;
   border: none;
+  cursor: pointer;
   width: 78px;
 }
 #login-form #login-with-password p {
   margin: 0;
-}
-#login-form .larger-font {
-  margin-top: 15px;
 }
 #footer {
   border-top: 1px solid #333;
@@ -208,5 +246,6 @@ td {
 }
 .larger-font {
   font-size: 1.4em;
+  margin-top: 15px;
 }
 /* End Universial Classes */

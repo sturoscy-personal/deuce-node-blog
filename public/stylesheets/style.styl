@@ -50,6 +50,7 @@ input, select, th, td
 			margin-right 2px
 		li.no-margin
 			margin 0
+
 #introduction
 	margin-bottom 25px
 
@@ -132,16 +133,57 @@ input, select, th, td
 					p
 						font-weight normal
 
-#register
-	h2
-		margin-bottom 15px
+#register-form
+	margin-top 100px
 
-	form
-		input
-			border 1px solid #455683
-			margin-bottom 10px
-			margin-top 5px
-			padding 2.5px
+	#register-box
+		background #DADADA
+		border-top 2px solid #DDDDDD
+		padding 25px 15px 15px 15px
+		width 335px
+
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+
+		-webkit-box-shadow: 0px 2px 2px 2px #C0C0C0;
+		-moz-box-shadow: 0px 2px 2px 2px #C0C0C0;
+		box-shadow: 0px 2px 2px 2px #C0C0C0;
+
+	#register
+		img
+			margin-bottom 15px
+		form
+			label
+				display block
+				margin-bottom 10px
+				font-size 2.000em
+
+			input
+				border 1px solid #455683
+				height 30px
+				font-size 1.500em
+				margin-bottom 10px
+				padding 5px
+				text-align center
+				text-transform uppercase
+				width 272px
+
+				-webkit-border-radius: 2px;
+				-moz-border-radius: 2px;
+				border-radius: 2px;
+			input.button
+				background url('../images/form-register-button.gif') no-repeat
+				border none
+				cursor pointer
+				width 78px
+
+		p
+			margin 0
+		
+		p
+			a
+				color #455863
 
 #login-form
 	margin-top 100px
@@ -183,14 +225,13 @@ input, select, th, td
 				-moz-border-radius: 2px;
 				border-radius: 2px;
 			input.button
+				background url('../images/form-login-button.gif') no-repeat
 				border none
+				cursor pointer
 				width 78px
 
 		p
 			margin 0
-
-	.larger-font
-		margin-top 15px
 
 #footer
 	border-top 1px solid #333333
@@ -207,5 +248,6 @@ input, select, th, td
 
 .larger-font
 	font-size 1.400em
+	margin-top 15px
 
 /* End Universial Classes */

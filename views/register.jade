@@ -1,24 +1,27 @@
 div.container_12
 
-	div#header.grid_12!=partial('includes/header.jade')
-	div.clear
-
-	div#register-form.grid_12
-		div#register
-			h2 Register
+	div(align='center')#register-form.grid_12
+		div#register-box
 			- if ('undefined' !== typeof errors && errors.length)
 				ul#errors
 					- each error in errors
 						li.error= error
-			form(action='/register', method='post')
-				#login
-					label(for=everyauth.password.loginFormFieldName) Login
-					<br />
-					input(type='text', name=everyauth.password.loginFormFieldName, value=userParams[everyauth.password.loginFormFieldName])
-				#password
-					label(for=everyauth.password.passwordFormFieldName) Password
-					<br />
-					input(type='password', name=everyauth.password.passwordFormFieldName)
-				#submit
-					input(type='submit', value='Register')
+			div#register
+				img(src='images/register-title.png')
+				form(action='/register', method='post')
+					div#username
+						input(type='text', name=everyauth.password.loginFormFieldName, value='e-mail')
+					div#first-name
+						input(type='text', name='first-name', value='First Name')
+					div#last-name
+						input(type='text', name='last-name', value='Last Name')
+					div#password
+						input(type='password', name=everyauth.password.passwordFormFieldName, value='password')
+					div#confirm-password
+						input(type='password', name='confirm-password', value='password')
+					input.button(type='submit', value='')
+
+		div(align='center').larger-font
+			a(href='/') Return to the Homepage
+
 	div.clear
