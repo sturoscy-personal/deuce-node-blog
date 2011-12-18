@@ -132,6 +132,7 @@ td {
 }
 #body #post-column #post-content #body {
   background: #fff;
+  border: 1px solid #ddd;
   padding: 10px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -257,6 +258,9 @@ td {
 }
 /* End Document ID's */
 /* Universal Classes */
+.bot-margin-none {
+  margin-bottom: 0;
+}
 .heavy {
   font-weight: bold;
 }
