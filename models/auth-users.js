@@ -38,11 +38,10 @@ UserSchema.plugin(mongooseAuth, {
   password: {
     loginWith: 'email',
       extraParams: {
-        phone: String,
-          name: {
-            first: String,
-            last: String
-          }
+        name: {
+          first: String,
+          last: String
+        }
       },
       
     everyauth: {

@@ -8,17 +8,15 @@ div.container_12
 						li.error= error
 			div#register
 				img(src='images/register-title.png')
-				form(action='/register', method='post')
+				form(action='/register', method='POST')
 					div#username
 						input(type='text', name=everyauth.password.loginFormFieldName, value='e-mail')
 					div#first-name
-						input(type='text', name='first-name', value='First Name')
+						input(type='text', name='name.first', value='First Name')
 					div#last-name
-						input(type='text', name='last-name', value='Last Name')
+						input(type='text', name='name.last', value='Last Name')
 					div#password
 						input(type='password', name=everyauth.password.passwordFormFieldName, value='password')
-					div#confirm-password
-						input(type='password', name='confirm-password', value='password')
 					input.button(type='submit', value='')
 
 		div(align='center').larger-font
