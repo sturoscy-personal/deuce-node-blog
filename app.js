@@ -48,6 +48,13 @@ app.get('/', function(req, res) {
   });
 });
 
+// About Page
+app.get('/about', function(req, res) {
+  res.render('about', {
+    title: 'About',
+  });
+});
+
 // Posts by ID (used for post page)
 app.get('/post/:id', function(req, res) {
   PostDataProvider.findById(req.params.id, function(postWithId) {

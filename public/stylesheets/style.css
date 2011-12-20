@@ -182,6 +182,15 @@ td {
   list-style-type: none;
   padding: 0;
 }
+#register-form #register-box #errors li {
+  background: none repeat scroll 0 0 #fbe3e4;
+  border: 1px solid #fbc2c4;
+  color: #d12f19;
+  height: 19px;
+  line-height: 19px;
+  margin-bottom: 19px;
+  padding: 10px;
+}
 #register-form #register img {
   margin-bottom: 15px;
 }
