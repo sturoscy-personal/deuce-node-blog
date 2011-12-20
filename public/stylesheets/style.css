@@ -41,6 +41,7 @@ h5 {
 a,
 avisited {
   color: #00b7ff;
+/* color #455863 */
   text-decoration: none;
 }
 pre {
@@ -175,6 +176,11 @@ td {
   -webkit-box-shadow: 0px 2px 2px 2px #c0c0c0;
   -moz-box-shadow: 0px 2px 2px 2px #c0c0c0;
   box-shadow: 0px 2px 2px 2px #c0c0c0;
+}
+#register-form #register-box #errors {
+  font-size: 1.2em;
+  list-style-type: none;
+  padding: 0;
 }
 #register-form #register img {
   margin-bottom: 15px;

@@ -1,3 +1,8 @@
+border-radius(n)
+  -webkit-border-radius n
+  -moz-border-radius n
+  border-radius n
+
 body
 	/* background url('../images/background.jpg') repeat */
 	/* background url('../images/tile-back.gif') repeat */
@@ -28,6 +33,7 @@ h5
 
 a, avisited
 	color #00B7FF
+	/* color #455863 */
 	text-decoration none
 
 pre
@@ -70,7 +76,7 @@ input, select, th, td
 
 		h5
 			text-shadow: 1px 1px 1px #ffffff;
-			filter: dropshadow(color=#ffffff, offx=1, offy=1);
+			filter: dropshadow(color=#ffffff, offx=1, offy=1); 
 		
 		p
 			text-shadow: 1px 1px 1px #ffffff;
@@ -124,9 +130,7 @@ input, select, th, td
 				border 1px solid #DDDDDD
 				padding 10px
 
-				-webkit-border-radius: 5px;
-				-moz-border-radius: 5px;
-				border-radius: 5px;
+				border-radius 5px
 
 			p
 				margin-top 0
@@ -165,13 +169,16 @@ input, select, th, td
 		padding 25px 15px 15px 15px
 		width 335px
 
-		-webkit-border-radius: 5px;
-		-moz-border-radius: 5px;
-		border-radius: 5px;
+		border-radius 5px
 
 		-webkit-box-shadow: 0px 2px 2px 2px #C0C0C0;
 		-moz-box-shadow: 0px 2px 2px 2px #C0C0C0;
 		box-shadow: 0px 2px 2px 2px #C0C0C0;
+
+		#errors
+			font-size 1.200em
+			list-style-type none
+			padding 0
 
 	#register
 		img
@@ -192,9 +199,7 @@ input, select, th, td
 				text-transform uppercase
 				width 272px
 
-				-webkit-border-radius: 2px;
-				-moz-border-radius: 2px;
-				border-radius: 2px;
+				border-radius 2px
 			input.button
 				background url('../images/form-register-button.gif') no-repeat
 				border none
@@ -217,9 +222,7 @@ input, select, th, td
 		padding 25px 15px 15px 15px
 		width 335px
 
-		-webkit-border-radius: 5px;
-		-moz-border-radius: 5px;
-		border-radius: 5px;
+		border-radius 5px
 
 		-webkit-box-shadow: 0px 2px 2px 2px #C0C0C0;
 		-moz-box-shadow: 0px 2px 2px 2px #C0C0C0;
@@ -244,9 +247,8 @@ input, select, th, td
 				text-transform uppercase
 				width 272px
 
-				-webkit-border-radius: 2px;
-				-moz-border-radius: 2px;
-				border-radius: 2px;
+				border-radius 2px
+
 			input.button
 				background url('../images/form-login-button.gif') no-repeat
 				border none

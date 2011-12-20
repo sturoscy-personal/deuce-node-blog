@@ -40,4 +40,14 @@ PostDataProvider.prototype.findById = function(id, callback) {
 	});
 };
 
+PostDataProvider.prototype.findByUserId = function(userId, callback) {
+	Post.find({'authorUserName': userId}, function(err, posts) {
+		if (err) {
+			callback(err);
+		} else {
+			callback(posts);
+		}
+	});
+};
+
 exports.PostDataProvider = PostDataProvider;

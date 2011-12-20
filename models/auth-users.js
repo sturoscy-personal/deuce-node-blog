@@ -22,7 +22,7 @@ UserSchema.plugin(mongooseAuth, {
       myHostname: 'http://deuce.herokuapp.com',
       consumerKey: 'nRXegDklkkbY5OOFnmThag',
       consumerSecret: '4Ndh9WosIwKN6glDWLMUwBdsFyy3E4kZp6THrPurg',
-      redirectPath: '/login'
+      redirectPath: '/'
     }
   },
 
@@ -31,7 +31,7 @@ UserSchema.plugin(mongooseAuth, {
       myHostname: 'http://deuce.herokuapp.com',
       appId: '057051d9a1afc75fba6d',
       appSecret: 'ab560e867fa23c0b408ba7fdfc9bed77a9596c6c',
-      redirectPath: '/login'
+      redirectPath: '/'
     }
   },
 

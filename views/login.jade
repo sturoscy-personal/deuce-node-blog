@@ -13,13 +13,14 @@ div.container_12
 					p= JSON.stringify(everyauth.twitter)
 				- else if (everyauth.password)
 					h3 Hello
+					p Congratulations. You can now post on the site! Your posts will still have to be approved first.
 					p= JSON.stringify(everyauth)
 			- else
 				div#login-with-password
 					img(src='images/login-title.png')
 					form(action='/login', method='post')
-						input(type='text', name='username', value='username')
-						input(type='password', name='password', value='password')
+						input(type='text', name=everyauth.password.loginFormFieldName, value='username')
+						input(type='password', name=everyauth.password.passwordFormFieldName, value='password')
 						input.button(type='submit', value='')
 					p.italicize
 						a(href='/register') Register | 

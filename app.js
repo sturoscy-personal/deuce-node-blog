@@ -55,6 +55,15 @@ app.get('/post/:id', function(req, res) {
   });
 });
 
+app.get('/userposts/:userId', function(req, res) {
+  PostDataProvider.findByUserId(req.params.userId, function(userPosts) {
+    res.render('userposts', {
+      title: 'User Posts',
+      userPosts: userPosts
+    });
+  });
+});
+
 mongooseAuth.helpExpress(app);
 
 app.listen(port);

@@ -25,35 +25,95 @@ html(lang="en")
 
 					// Login Form Behavior
 					// Username
-					$("#login-with-password input[name='username']:text").focusin(function() {
-						$(this).val("");
-					}).focusout(function() {
-						$(this).val("e-mail");
-					});
+					$("#login-with-password input:text")
+
+						.focusin(function() {
+							if ($(this).val() == "username") {
+								$(this).val("");
+							}
+						})
+
+						.focusout(function() {
+							if ($(this).val() == "") {
+								$(this).val("username");
+							}
+						});
 
 					// Password
-					$("#login-with-password input[name='password']:password").focusin(function() {
-						$(this).val("");
-					}).focusout(function() {
-						$(this).val("password");
-					});
+					$("#login-with-password input:password")
+
+						.focusin(function() {
+							if ($(this).val() == "password") {
+								$(this).val("");
+							}
+						})
+						.focusout(function() {
+							if ($(this).val() == "") {
+								$(this).val("password");
+							}
+						});
 
 					// Register Form Behavior
 					// Username
-					/*
-					$("#register #username input:text").focusin(function() {
-						$(this).val("");
-					}).focusout(function() {
-						$(this).val("e-mail");
-					});
+					$("#register #username input:text")
+
+						.focusin(function() {
+							if ($(this).val() == "Email") {
+								$(this).val("");
+							}
+						})
+
+						.focusout(function() {
+							if ($(this).val() == "") {
+								$(this).val("Email");
+							}
+						});
+
+					// First Name
+					$("#register #first-name input:text")
+
+						.focusin(function() {
+							if ($(this).val() == "First Name") {
+								$(this).val("");
+							}
+						})
+
+						.focusout(function() {
+							if ($(this).val() == "") {
+								$(this).val("First Name");
+							}
+						});
+
+					// Last Name
+					$("#register #last-name input:text")
+
+						.focusin(function() {
+							if ($(this).val() == "Last Name") {
+								$(this).val("");
+							}
+						})
+
+						.focusout(function() {
+							if ($(this).val() == "") {
+								$(this).val("Last Name");
+							}
+						});
 
 					// Password
-					$("#register #password input:password").focusin(function() {
-						$(this).val("");
-					}).focusout(function() {
-						$(this).val("password");
-					});
-					*/
+					$("#register #password input:password")
+
+						.focusin(function() {
+							if ($(this).val() == "password") {
+								$(this).val("");
+							}
+						})
+
+						.focusout(function() {
+							if ($(this).val() == "") {
+								$(this).val("password");
+							}
+						});
+
 				});
 				
 	body!= body
