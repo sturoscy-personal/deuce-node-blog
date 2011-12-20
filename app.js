@@ -37,6 +37,8 @@ app.configure(function(){
 });
 
 // Routes (RESTful configurations)
+
+// All Posts
 app.get('/', function(req, res) {
   PostDataProvider.findAll(function(posts) {
     res.render('index', {
@@ -46,6 +48,7 @@ app.get('/', function(req, res) {
   });
 });
 
+// Posts by ID (used for post page)
 app.get('/post/:id', function(req, res) {
   PostDataProvider.findById(req.params.id, function(postWithId) {
     res.render('post', {
@@ -55,9 +58,10 @@ app.get('/post/:id', function(req, res) {
   });
 });
 
-app.get('/userposts/:userId', function(req, res) {
+// All of an Individual User's Posts
+app.get('/user/posts/:userId', function(req, res) {
   PostDataProvider.findByUserId(req.params.userId, function(userPosts) {
-    res.render('userposts', {
+    res.render('user/posts.jade', {
       title: 'User Posts',
       userPosts: userPosts
     });
