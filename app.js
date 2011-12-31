@@ -66,7 +66,7 @@ app.get('/post/:id', function(req, res) {
 });
 
 // All of an Individual User's Posts
-app.get('/user/posts/:userId', function(req, res) {
+app.get('/user/:userId/posts', function(req, res) {
   PostDataProvider.findByUserId(req.params.userId, function(userPosts) {
     res.render('user/posts.jade', {
       title: 'User Posts',

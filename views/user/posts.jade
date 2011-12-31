@@ -3,10 +3,50 @@ div.container_12
 	div#header.grid_12!=partial('includes/header.jade')
 	div.clear
 
-	each userPost in userPosts
-		h3 
-			a(href='/post/#{userPost._id}') #{userPost.title}
-		p #{userPost.body}
+	div#introduction.grid_12
+		h1 User Management and Blogging with 
+			a(href='http://www.nodejs.org', target='_blank') node.js
+	div.clear
+
+	div#body
+		div#post-header.grid_6.prefix_2
+			p Recent Entries
+		div#user-header.grid_4
+			p Users Currently Online
+		div.clear
+
+		div#post-column.grid_8
+			each userPost, i in userPosts
+				div#post
+					div#meta-content.grid_2.alpha
+						ul
+							li #{userPost.date_created}
+							li In #{userPost.categories}
+							li 15 Comments
+					div#post-content.grid_6.omega
+						div#title
+							h5 
+								a(href='/post/#{userPost._id}') #{userPost.title}
+						div#body
+							p #{userPost.body}
+							p.bot-margin-none 
+								a(href='/post/#{userPost._id}') &raquo; Read More
+					div.clear
+
+		div#user-column.grid_4
+			div#user
+				ul
+					li
+						span.heavy Name: 
+					li
+						span.heavy Username: 
+					li 
+						span.heavy Email: 
+			div#twitter
+				div#twitter-header
+					p Twitter Updates from admin
+					div#tweets
+		div.clear
 
 	div#footer.grid_12!=partial('includes/footer.jade')
 	div.clear
