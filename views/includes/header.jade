@@ -1,14 +1,18 @@
-div#navigation
-	|<a href='/'>
-	|	<img src='images/home-button.png'>
-	|</a>
-	|<a href='/about'>
-	|	<img src='images/about-button.png'>
-	|</a>
-	|<a href='/register'>
-	|	<img src='images/register-button.png'>
-	|</a>
-	- if (!everyauth.loggedIn)
-	|	<a href='/login'>
-	|		<img src='images/login-button.png'>
-	|	</a>
+div#header-left.grid_4
+	div#logo
+		<img src='images/deuce-logo.png' />
+div#header-right.grid_8
+	div#navigation
+		|<a href='/'>
+		|	<img src='images/home-button.png'>
+		|</a>
+		|<a href='/about'>
+		|	<img src='images/about-button.png'>
+		|</a>
+		|<a href='/register'>
+		|	<img src='images/register-button.png'>
+		|</a>
+		- if (!everyauth.loggedIn)
+		|	<a href='/login'>
+		|		<img src='images/login-button.png'>
+		|	</a>

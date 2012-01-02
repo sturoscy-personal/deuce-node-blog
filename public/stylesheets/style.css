@@ -62,6 +62,11 @@ td {
 }
 /* End Document Layout */
 /* Document ID's */
+#header {
+  height: auto;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
 #navigation {
   margin-bottom: 25px;
 }
