@@ -1,14 +1,14 @@
 div#navigation
-	ul
-		li
-			a(href='/') Home | 
-		li
-			a(href='/about') About |
-		li
-			a(href='/register') Register | 
-		- if (!everyauth.loggedIn)
-			li
-				a(href='/login') Login
-		- else
-			li
-				a(href='/logout') Logout
+	|<a href='/'>
+	|	<img src='images/home-button.png'>
+	|</a>
+	|<a href='/about'>
+	|	<img src='images/about-button.png'>
+	|</a>
+	|<a href='/register'>
+	|	<img src='images/register-button.png'>
+	|</a>
+	- if (!everyauth.loggedIn)
+	|	<a href='/login'>
+	|		<img src='images/login-button.png'>
+	|	</a>

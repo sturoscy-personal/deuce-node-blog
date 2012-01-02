@@ -62,6 +62,9 @@ td {
 }
 /* End Document Layout */
 /* Document ID's */
+#navigation {
+  margin-bottom: 25px;
+}
 #navigation ul {
   font-size: 1.4em;
   list-style-type: none;
@@ -77,7 +80,8 @@ td {
   margin: 0;
 }
 #introduction {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  margin-top: 25px;
 }
 #featured-posts {
   margin-bottom: 25px;
