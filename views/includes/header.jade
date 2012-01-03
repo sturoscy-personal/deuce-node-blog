@@ -1,18 +1,10 @@
 div#header-left.grid_4
 	div#logo
-		<img src='images/deuce-logo.png' />
+		<img src='http://deuce.herokuapp.com/images/deuce-logo.png' />
 div#header-right.grid_8(align='right')
 	div#navigation
-		|<a href='/'>
-		|	<img src='images/home-button.png'>
-		|</a>
-		|<a href='/about'>
-		|	<img src='images/about-button.png'>
-		|</a>
-		|<a href='/register'>
-		|	<img src='images/register-button.png'>
-		|</a>
+		|<a href='/'><img src='http://deuce.herokuapp.com/images/home-button.png' /></a>
+		|<a href='/about'><img src='http://deuce.herokuapp.com/images/about-button.png' /></a>
+		|<a href='/register'><img src='http://deuce.herokuapp.com/images/register-button.png' /></a>
 		- if (!everyauth.loggedIn)
-		|	<a href='/login'>
-		|		<img src='images/login-button.png'>
-		|	</a>
+		|	<a href='/login'><img src='http://deuce.herokuapp.com/images/login-button.png' /></a>
