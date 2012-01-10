@@ -9,5 +9,6 @@
     , "jade": ">= 0.0.1"
     , "mongoose": "2.3.13"
     , "mongoose-auth": "0.0.11"
+    , "zlib": "1.0.5"
   }
 }
