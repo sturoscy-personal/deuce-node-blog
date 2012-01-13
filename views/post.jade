@@ -22,6 +22,10 @@ div.container_12
 						h5 #{postWithId.title}
 					div#body
 						p #{postWithId.body}
+					- if (everyauth.loggedIn)
+						- if (everyauth.password)
+							div#comments
+								p.heavy Comment
 				div.clear
 
 		div#user-column.grid_4

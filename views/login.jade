@@ -7,15 +7,15 @@ div.container_12
 				- if (everyauth.github)
 					h3 Hello #{everyauth.github.user.name}!
 					p Congratulations. You can now comment on the site. Please be courteous and show some class!
-					p= JSON.stringify(everyauth.github)
+					// p= JSON.stringify(everyauth.github)
 				- else if(everyauth.twitter)
 					h3 Hello #{everyauth.twitter.user.screen_name}!
 					p Congratulations. You can now comment on the site. Please be courteous and show some class!
-					p= JSON.stringify(everyauth.twitter)
+					// p= JSON.stringify(everyauth.twitter)
 				- else if (everyauth.password)
 					h3 Hello
-					p Congratulations. You can now post on the site! Your posts will still have to be approved first.
-					p= JSON.stringify(everyauth)
+					p Congratulations. You can now comment on the site! Please be courteous and show some class!
+					// p= JSON.stringify(everyauth)
 			- else
 				div#login-with-password
 					img(src='images/login-title.png')

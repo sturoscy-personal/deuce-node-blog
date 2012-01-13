@@ -3,12 +3,13 @@
   , "version": "0.0.1"
   , "private": true
   , "dependencies": {
-      "bcrypt": "0.4.1"
-    , "express": "2.5.0"
-    , "stylus": ">= 0.0.1"
-    , "jade": ">= 0.0.1"
-    , "mongoose": "2.3.13"
-    , "mongoose-auth": "0.0.11"
-    , "zlib": "1.0.5"
+      "bcrypt"        : "0.4.1"
+    , "express"       : "2.5.0"
+    , "stylus"        : ">= 0.0.1"
+    , "jade"          : ">= 0.0.1"
+    , "mongoose"      : "2.3.13"
+    , "mongoose-auth" : "0.0.11"
+    , "mongoose-dbref": "0.0.2"
+    , "zlib"          : "1.0.5"
   }
 }

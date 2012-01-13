@@ -2,6 +2,14 @@ var mongoose = require('mongoose');
 
 var Schema   = mongoose.Schema,
 	ObjectId = Schema.ObjectId;
+
+var Comments = new Schema({
+	authorID		: String,
+	authorUserName	: String,
+	title			: String,
+	body			: String,
+	date 			: { type: Date, default: Date.now() }
+});
 	
 var PostSchema = new Schema({
 	authorUserName	: String,
@@ -10,7 +18,7 @@ var PostSchema = new Schema({
 	body			: String,
 	categories 		: [String],
 	tags			: [String],
-	comments		: [String],
+	comments		: [Comments],
 	date_created	: { type: Date, default: Date.now() },
 	last_modified 	: Date
 });
