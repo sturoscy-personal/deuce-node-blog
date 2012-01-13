@@ -27,13 +27,6 @@ UserSchema.plugin(mongooseAuth, {
           });
         }
 
-        if (req.foundUser) {
-          req.foundUser.isLoggedIn = false;
-          req.foundUser.save(function (err, foundUser) {
-            if (err) errors.push(err.message || err);
-          });
-        }
-
         req.logout();
         res.writeHead(303, { 'Location': this.logoutRedirectPath() });
         res.end();
@@ -43,57 +36,19 @@ UserSchema.plugin(mongooseAuth, {
 
   twitter: {
     everyauth: {
-      myHostname: 'http://deuce.herokuapp.com',
+      myHostname: 'http://local.host:3000',
       consumerKey: 'nRXegDklkkbY5OOFnmThag',
       consumerSecret: '4Ndh9WosIwKN6glDWLMUwBdsFyy3E4kZp6THrPurg',
-      redirectPath: '/',
-      findOrCreateUser: function (sess, accessTok, accessTokSecret, twitterUser) {
-        var promise = this.Promise()
-          , self = this;
-        this.User()().findOne({'twit.id': twitterUser.id}, function (err, foundUser) {
-          if (err) return promise.fail(err);
-          if (foundUser) {
-            foundUser.isLoggedIn = true;
-            foundUser.save(function (err, foundUser) {
-              return promise.fulfill(foundUser);
-            });;
-          }
-
-          self.User()().createWithTwitter(twitterUser, accessTok, accessTokSecret, function (err, createdUser) {
-            if (err) return promise.fail(err);
-            return promise.fulfill(createdUser);
-          });
-        });
-        return promise;
-      }
+      redirectPath: '/'
     }
   },
 
   github: {
     everyauth: {
-      myHostname: 'http://deuce.herokuapp.com',
+      myHostname: 'http://local.host:3000',
       appId: '057051d9a1afc75fba6d',
       appSecret: 'ab560e867fa23c0b408ba7fdfc9bed77a9596c6c',
-      redirectPath: '/',
-      findOrCreateUser: function (sess, accessTok, accessTokExtra, ghUser) {
-        var promise = this.Promise()
-          , self = this;
-        // TODO Check user in session or request helper first
-        //      e.g., req.user or sess.auth.userId
-        this.User()().findOne({'github.id': ghUser.id}, function (err, foundUser) {
-          if (foundUser) {
-            foundUser.isLoggedIn = true;
-            foundUser.save(function (err, foundUser) {
-              return promise.fulfill(foundUser);
-            });
-          }
-
-          self.User()().createWithGithub(ghUser, accessTok, function (err, createdUser) {
-            return promise.fulfill(createdUser);
-          });
-        });
-        return promise;
-      }
+      redirectPath: '/'
     }
   },
 
