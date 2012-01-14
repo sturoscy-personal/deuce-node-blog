@@ -77,7 +77,7 @@ div.container_12
 									| #{user.name.first} #{user.name.last}
 								li
 									span.heavy Email: 
-									| #{user.email}
+									| <a target='_blank' href='/user/#{user.email}/posts'>#{user.email}</a>
 							- else
 								li
 									There are no users currently online.

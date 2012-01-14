@@ -43,7 +43,6 @@ app.configure(function(){
 app.get('/', function(req, res) {
   PostDataProvider.findAll(function(posts) {
     authDataProvider.findLoggedIn(function(loggedInUsers) {
-      console.log(loggedInUsers);
       res.render('index', {
         title: 'Home',
         posts: posts,
