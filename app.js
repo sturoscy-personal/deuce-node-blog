@@ -20,7 +20,8 @@ var PostDataProvider = require('./models/posts').PostDataProvider;
     PostDataProvider = new PostDataProvider();
 
 // Authentication Providers
-var authProvider = require('./models/auth-users.js');
+var authDataProvider = require('./models/auth-users.js').authDataProvider,
+    authDataProvider = new authDataProvider();
 
 // Configuration
 app.configure(function(){
@@ -41,9 +42,12 @@ app.configure(function(){
 // All Posts
 app.get('/', function(req, res) {
   PostDataProvider.findAll(function(posts) {
-    res.render('index', {
-      title: 'Home',
-      posts: posts
+    authDataProvider.findLoggedIn(function(loggedInUsers) {
+      res.render('index', {
+        title: 'Home',
+        posts: posts,
+        users: loggedInUsers
+      });
     });
   });
 });

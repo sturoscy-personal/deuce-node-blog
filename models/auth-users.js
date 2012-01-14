@@ -43,7 +43,7 @@ UserSchema.plugin(mongooseAuth, {
 
   twitter: {
     everyauth: {
-      myHostname: 'http://local.host:3000',
+      myHostname: 'http://deuce.herokuapp.com',
       consumerKey: 'nRXegDklkkbY5OOFnmThag',
       consumerSecret: '4Ndh9WosIwKN6glDWLMUwBdsFyy3E4kZp6THrPurg',
       redirectPath: '/',
@@ -55,13 +55,16 @@ UserSchema.plugin(mongooseAuth, {
           if (foundUser) {
             foundUser.isLoggedIn = true;
             foundUser.save(function (err, foundUser) {
-              return promise.fulfill(foundUser);
+              if (err)
+                console.log(err);
+            });
+            return promise.fulfill(foundUser);
+          } else {
+            self.User()().createWithTwitter(twitterUser, accessTok, accessTokSecret, function (err, createdUser) {
+              if (err) return promise.fail(err);
+              return promise.fulfill(createdUser);
             });
           }
-          self.User()().createWithTwitter(twitterUser, accessTok, accessTokSecret, function (err, createdUser) {
-            if (err) return promise.fail(err);
-            return promise.fulfill(createdUser);
-          });
         });
         return promise;
       }
@@ -70,7 +73,7 @@ UserSchema.plugin(mongooseAuth, {
 
   github: {
     everyauth: {
-      myHostname: 'http://local.host:3000',
+      myHostname: 'http://deuce.herokuapp.com',
       appId: '057051d9a1afc75fba6d',
       appSecret: 'ab560e867fa23c0b408ba7fdfc9bed77a9596c6c',
       redirectPath: '/',
@@ -83,12 +86,15 @@ UserSchema.plugin(mongooseAuth, {
           if (foundUser) {
             foundUser.isLoggedIn = true;
             foundUser.save(function (err, foundUser) {
-              return promise.fulfill(foundUser);
+              if (err)
+                console.log(err);
+            });
+            return promise.fulfill(foundUser);
+          } else {
+            self.User()().createWithGithub(ghUser, accessTok, function (err, createdUser) {
+              return promise.fulfill(createdUser);
             });
           }
-          self.User()().createWithGithub(ghUser, accessTok, function (err, createdUser) {
-            return promise.fulfill(createdUser);
-          });
         });
         return promise;
       }
@@ -156,3 +162,18 @@ UserSchema.plugin(mongooseAuth, {
 
 // Create the user
 User = mongoose.model('auth-users', UserSchema);
+
+// User Data Provider
+authDataProvider = function(){};
+
+authDataProvider.prototype.findLoggedIn = function(callback) {
+  User.find({'isLoggedIn': true}, function(err, loggedInUsers) {
+    if (err) {
+      callback(err);
+    } else {
+      callback(loggedInUsers);
+    }
+  });
+};
+
+exports.authDataProvider = authDataProvider;
