@@ -43,9 +43,11 @@ app.configure(function(){
 app.get('/', function(req, res) {
   PostDataProvider.findAll(function(posts) {
     authDataProvider.findLoggedIn(function(loggedInUsers) {
+      numUsers = loggedInUsers.length;
       res.render('index', {
         title: 'Home',
         posts: posts,
+        numUsers: numUsers,
         users: loggedInUsers
       });
     });
