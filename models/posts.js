@@ -25,37 +25,37 @@ var PostSchema = new Schema({
 
 var Post = mongoose.model('posts', PostSchema);
 
-PostDataProvider = function(){};
+var PostDataProvider = function(){};
 
 //Find all Posts
-PostDataProvider.prototype.findAll = function(callback) {
-	Post.find({}, function(err, posts) {
-		if (err) {
-			callback(err);
-		} else {
-			callback(posts);
-		}
-	});
-};
-
-PostDataProvider.prototype.findById = function(id, callback) {
-	Post.findOne({'_id': id}, function(err, post) {
-		if (err) {
-			callback(err);
-		} else {
-			callback(post);	
-		}
-	});
-};
-
-PostDataProvider.prototype.findByUserId = function(userId, callback) {
-	Post.find({'authorUserName': userId}, function(err, posts) {
-		if (err) {
-			callback(err);
-		} else {
-			callback(posts);
-		}
-	});
+PostDataProvider.prototype = {
+	findAll: function(callback) {
+		Post.find({}, function(err, posts) {
+			if (err) {
+				callback(err);
+			} else {
+				callback(posts);
+			}
+		});
+	},
+	findById: function(id, callback) {
+		Post.findOne({'_id': id}, function(err, post) {
+			if (err) {
+				callback(err);
+			} else {
+				callback(post);	
+			}
+		});
+	},
+	findByUserId: function(userId, callback) {
+		Post.find({'authorUserName': userId}, function(err, posts) {
+			if (err) {
+				callback(err);
+			} else {
+				callback(posts);
+			}
+		});
+	}
 };
 
 exports.PostDataProvider = PostDataProvider;

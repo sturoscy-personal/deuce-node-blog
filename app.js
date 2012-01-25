@@ -38,7 +38,6 @@ app.configure(function(){
 });
 
 // Routes (RESTful configurations)
-
 // All Posts
 app.get('/', function(req, res) {
   PostDataProvider.findAll(function(posts) {
@@ -57,7 +56,7 @@ app.get('/', function(req, res) {
 // About Page
 app.get('/about', function(req, res) {
   res.render('about', {
-    title: 'About',
+    title: 'About'
   });
 });
 

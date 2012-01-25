@@ -163,17 +163,20 @@ UserSchema.plugin(mongooseAuth, {
 // Create the user
 User = mongoose.model('auth-users', UserSchema);
 
-// User Data Provider
+// User Data Provider Class
 authDataProvider = function(){};
 
-authDataProvider.prototype.findLoggedIn = function(callback) {
-  User.find({'isLoggedIn': true}, function(err, loggedInUsers) {
-    if (err) {
-      callback(err);
-    } else {
-      callback(loggedInUsers);
-    }
-  });
+// User Data Provider Methods
+authDataProvider.prototype = {
+  findLoggedIn: function(callback) {
+    User.find({'isLoggedIn': true}, function(err, loggedInUsers) {
+      if (err) {
+        callback(err);
+      } else {
+        callback(loggedInUsers);
+      }
+    });
+  }
 };
 
 exports.authDataProvider = authDataProvider;
