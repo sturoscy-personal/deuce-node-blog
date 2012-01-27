@@ -16,3 +16,12 @@ Usage
 * Run the app using `node app.js`
 
 The above is assuming you have node.js and npm installed.  Good luck and have fun!
+
+Technologies
+------------
+
+* [node.js](http://www.nodejs.org)
+* [node package manager](http://npmjs.org)
+* [heroku](http://www.heroku.com) - for deployment
+* [mongolab](http://mongolab.com) - mongoDB/NoSQL hosting
+* Check the package.json file for node dependencies
