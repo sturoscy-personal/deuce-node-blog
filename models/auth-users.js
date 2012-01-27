@@ -6,7 +6,10 @@ var Schema   = mongoose.Schema,
     ObjectId = Schema.ObjectId;
     
 var UserSchema = new Schema({
-  isLoggedIn: { type: Boolean, default: false }
+  isLoggedIn: { type: Boolean, default: false },
+  lastLogin:  Date,
+  lastLogout: Date,
+  keepAlive:  Date
 }),
     User;
 
@@ -22,6 +25,7 @@ UserSchema.plugin(mongooseAuth, {
 
         if (req.user) {
           req.user.isLoggedIn = false;
+          req.user.lastLogout = Date.now();
           req.user.save(function (err, user) {
             if (err) errors.push(err.message || err);
           });
@@ -29,6 +33,7 @@ UserSchema.plugin(mongooseAuth, {
 
         if (req.foundUser) {
           req.foundUser.isLoggedIn = false;
+          req.foundUser.lastLogout = Date.now();
           req.foundUser.save(function (err, foundUser) {
             if (err) errors.push(err.message || err);
           });
@@ -54,6 +59,7 @@ UserSchema.plugin(mongooseAuth, {
           if (err) return promise.fail(err);
           if (foundUser) {
             foundUser.isLoggedIn = true;
+            foundUser.lastLogin  = Date.now();
             foundUser.save(function (err, foundUser) {
               if (err)
                 console.log(err);
@@ -85,6 +91,7 @@ UserSchema.plugin(mongooseAuth, {
         this.User()().findOne({'github.id': ghUser.id}, function (err, foundUser) {
           if (foundUser) {
             foundUser.isLoggedIn = true;
+            foundUser.lastLogin  = Date.now();
             foundUser.save(function (err, foundUser) {
               if (err)
                 console.log(err);
@@ -145,8 +152,9 @@ UserSchema.plugin(mongooseAuth, {
             return promise.fulfill(errors);
           }
 
-          // Update isLoggedIn
+          // Update isLoggedIn and lastLogin
           user.isLoggedIn = true;
+          user.lastLogin  = Date.now();
 
           // Save the Update
           user.save(function (err, user) {

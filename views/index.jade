@@ -61,6 +61,9 @@ div.container_12
 								li
 									span.heavy Email: 
 									| #{user.github.email}
+								li
+									span.heavy Last Login:
+									| #{user.github.lastLogout}
 							- else if (user.twit.name)
 								li
 									span.heavy Name: 
@@ -71,6 +74,9 @@ div.container_12
 								li
 									span.heavy URL: 
 									| <a target='_blank' href='#{user.twit.url}'>#{user.twit.url}</a>
+								li
+									span.heavy Last Login:
+									| #{user.twit.lastLogout}	
 							- else if (user.name.first)
 								li
 									span.heavy Name: 
@@ -78,6 +84,9 @@ div.container_12
 								li
 									span.heavy Email: 
 									| <a target='_blank' href='/user/#{user.email}/posts'>#{user.email}</a>
+								li
+									span.heavy Last Login: 
+									| #{user.lastLogout}
 							- else
 								li
 									There are no users currently online.
