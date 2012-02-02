@@ -1,6 +1,8 @@
 // Module dependencies.
 var express      = require('express'),
-    mongooseAuth = require('mongoose-auth');
+    mongooseAuth = require('mongoose-auth'),
+    moment       = require('moment');
+
 var app = module.exports = express.createServer();
 
 // Port info
@@ -37,12 +39,17 @@ app.configure(function(){
   app.use(mongooseAuth.middleware());
 });
 
+// Keeping this in for using moment plugin
+var now       = moment(Date.now()),
+    formatNow = now.format('dddd, MMMM Do YYYY, h:mm:ss a');
+
 // Routes (RESTful configurations)
 // All Posts
 app.get('/', function(req, res) {
   PostDataProvider.findAll(function(posts) {
     authDataProvider.findLoggedIn(function(loggedInUsers) {
-      numUsers = loggedInUsers.length;
+      var numUsers;
+          numUsers = loggedInUsers.length;
       res.render('index', {
         title: 'Home',
         posts: posts,
@@ -63,9 +70,15 @@ app.get('/about', function(req, res) {
 // Posts by ID (used for post page)
 app.get('/post/:id', function(req, res) {
   PostDataProvider.findById(req.params.id, function(postWithId) {
-    res.render('post', {
-      title: 'Post',
-      postWithId: postWithId
+    authDataProvider.findLoggedIn(function(loggedInUsers) {
+      var numUsers;
+          numUsers = loggedInUsers.length;
+      res.render('post', {
+        title: 'Post',
+        postWithId: postWithId,
+        numUsers: numUsers,
+        users: loggedInUsers
+      });
     });
   });
 });
@@ -73,9 +86,15 @@ app.get('/post/:id', function(req, res) {
 // All of an Individual User's Posts
 app.get('/user/:userId/posts', function(req, res) {
   PostDataProvider.findByUserId(req.params.userId, function(userPosts) {
-    res.render('user/posts.jade', {
-      title: 'User Posts',
-      userPosts: userPosts
+    authDataProvider.findLoggedIn(function(loggedInUsers) {
+      var numUsers;
+          numUsers = loggedInUsers.length;
+      res.render('user/posts.jade', {
+        title: 'User Posts',
+        userPosts: userPosts,
+        numUsers: numUsers,
+        users: loggedInUsers
+      });
     });
   });
 });

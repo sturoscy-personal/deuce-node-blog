@@ -7,7 +7,7 @@ div.container_12
 		div#post-header.grid_6.prefix_2
 			p Recent Entries
 		div#user-header.grid_4
-			p Users Currently Online
+			p Twitter Updates from Admin
 		div.clear
 
 		div#post-column.grid_8
@@ -29,18 +29,53 @@ div.container_12
 				div.clear
 
 		div#user-column.grid_4
-			div#user
-				ul
-					li
-						span.heavy Name: 
-					li
-						span.heavy Username: 
-					li 
-						span.heavy Email: 
 			div#twitter
 				div#twitter-header
-					p Twitter Updates from admin
 					div#tweets
+			div#online-users
+				p.heavy #{numUsers} Users Currently Online
+				each user in users
+					div#user
+						ul
+							- if (user.github.name)
+								li
+									span.heavy Name: 
+									| #{user.github.name}
+								li
+									span.heavy Github Username: 
+									| #{user.github.login}
+								li
+									span.heavy Email: 
+									| #{user.github.email}
+								li
+									span.heavy Last Login:
+									| #{user.github.lastLogout}
+							- else if (user.twit.name)
+								li
+									span.heavy Name: 
+									| #{user.twit.name}
+								li
+									span.heavy Screen Name: 
+									| #{user.twit.screenName}
+								li
+									span.heavy URL: 
+									| <a target='_blank' href='#{user.twit.url}'>#{user.twit.url}</a>
+								li
+									span.heavy Last Login:
+									| #{user.twit.lastLogout}	
+							- else if (user.name.first)
+								li
+									span.heavy Name: 
+									| #{user.name.first} #{user.name.last}
+								li
+									span.heavy Email: 
+									| <a target='_blank' href='/user/#{user.email}/posts'>#{user.email}</a>
+								li
+									span.heavy Last Login: 
+									| #{user.lastLogout}
+							- else
+								li
+									There are no users currently online.
 		div.clear
 
 	div#footer.grid_12!=partial('includes/footer.jade')
