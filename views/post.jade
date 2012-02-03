@@ -24,13 +24,19 @@ div.container_12
 						p #{postWithId.body}
 					div#comments
 						p.heavy Comments
+						each comment, i in postWithId.comments
+							div#comment
+								p Comment from: <span class='heavy'>#{comment.authorUserName}</span>
+								h5 #{comment.body}
+							hr
 						- if (everyauth.loggedIn)
 							- if (everyauth.password)
-								form(action='/post', method='POST')
-									div#email
-										input(type='text', name='email', value='Email Address')
-									div#comment
-										textarea(name='comment', value='Comment')
+								p.heavy Leave a Comment
+								form(action='/post/#{postWithId._id}', method='POST')
+									div#email-input
+										input(type='text', name='comment[email]', value='Email Address')
+									div#comment-input
+										textarea(name='comment[comment]', value='Comment')
 									input.button(type='submit', value='')
 				div.clear
 

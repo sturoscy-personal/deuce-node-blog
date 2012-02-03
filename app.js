@@ -106,6 +106,16 @@ app.get('/add-post', function(req, res) {
   });
 });
 
+// Add a comment
+app.post('/post/:id', function(req, res) {
+  var commentObject = req.body.comment,
+      email         = commentObject.email,
+      comment       = commentObject.comment;
+  var postID        = req.params.id;
+  PostDataProvider.addComment(commentObject, postID, function(){});
+  res.redirect('/post/' + req.params.id);
+});
+
 mongooseAuth.helpExpress(app);
 
 app.listen(port);

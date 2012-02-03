@@ -156,6 +156,10 @@ td {
   padding: 10px;
   border-radius: 5px;
 }
+#body #post-column #post #post-content #comments h5 {
+  color: #000;
+  margin-left: 15px;
+}
 #body #post-column #post #post-content #comments form label {
   display: block;
   margin-bottom: 10px;

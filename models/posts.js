@@ -4,9 +4,7 @@ var Schema   = mongoose.Schema,
 	ObjectId = Schema.ObjectId;
 
 var Comments = new Schema({
-	authorID		: String,
 	authorUserName	: String,
-	title			: String,
 	body			: String,
 	date 			: { type: Date, default: Date.now() }
 });
@@ -53,6 +51,26 @@ PostDataProvider.prototype = {
 				callback(err);
 			} else {
 				callback(posts);
+			}
+		});
+	},
+	// Comments
+	addComment: function(commentObject, postID) {
+		var commentAuthorEmail 	= commentObject.email
+			commentComment 		= commentObject.comment;
+
+		Post.findById(postID, function(err, post) {
+			if (!err) { 
+				post.comments.push({ authorUserName: commentAuthorEmail, body: commentComment });
+				post.save(function (err) {
+					if (err) { 
+						console.log(err); 
+					} else {
+						console.log("Saved!");
+					}
+				});
+			} else {
+				console.log(err);
 			}
 		});
 	}
