@@ -67,26 +67,22 @@ td {
   margin-bottom: 25px;
   margin-top: 25px;
 }
-#navigation {
+#header #header-right #navigation {
   margin-bottom: 25px;
 }
-#navigation ul {
+#header #header-right #navigation ul {
   font-size: 1.4em;
   list-style-type: none;
   margin: 15px 15px 15px 0;
   padding: 15px 15px 15px 0;
   text-align: center;
 }
-#navigation ul li {
+#header #header-right #navigation ul li {
   float: left;
   margin-right: 2px;
 }
-#navigation ul li.no-margin {
+#header #header-right #navigation ul li.no-margin {
   margin: 0;
-}
-#introduction {
-  margin-bottom: 20px;
-  margin-top: 25px;
 }
 #featured-posts {
   margin-bottom: 25px;
@@ -136,31 +132,64 @@ td {
   border-top: 1px dotted #bbb;
   padding-top: 5px;
 }
-#body #post-column #meta-content ul {
+#body #post-column #post #meta-content ul {
   font-size: 1em;
   list-style-type: none;
   margin: 0 0 1em;
   padding: 0;
 }
-#body #post-column #meta-content ul li {
+#body #post-column #post #meta-content ul li {
   border-bottom: 1px dotted #bbb;
   padding: 5px 0 5px 0;
 }
-#body #post-column #post-content #title {
+#body #post-column #post #post-content #title {
   margin-bottom: 1em;
   margin-top: 1em;
 }
-#body #post-column #post-content #title h5 {
+#body #post-column #post #post-content #title h5 {
   font-family: 'coolvetica';
   letter-spacing: 1px;
 }
-#body #post-column #post-content #body {
+#body #post-column #post #post-content #body {
   background: #fff;
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 5px;
 }
-#body #post-column #post-content p {
+#body #post-column #post #post-content #comments label,
+#body #post-column #post #post-content form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+#body #post-column #post #post-content #comments input,
+#body #post-column #post #post-content form input {
+  border: 1px solid #ddd;
+  height: 30px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  padding: 5px;
+  text-align: center;
+  width: inherit;
+}
+#body #post-column #post #post-content #comments textarea,
+#body #post-column #post #post-content form textarea {
+  border: 1px solid #ddd;
+  font-size: 1.5em;
+  height: 215px;
+  margin-bottom: 10px;
+  padding: 5px;
+  resize: none;
+  width: 508px;
+}
+#body #post-column #post #post-content #comments input.button,
+#body #post-column #post #post-content form input.button {
+  background: url("../images/form-register-button.gif") no-repeat;
+  border: none;
+  cursor: pointer;
+  width: 82px;
+}
+#body #post-column #post #post-content p {
   margin-top: 0;
   text-align: justify;
 }
@@ -251,7 +280,6 @@ td {
   margin-bottom: 10px;
   padding: 5px;
   text-align: center;
-  text-transform: uppercase;
   width: 272px;
   border-radius: 2px;
 }
@@ -293,7 +321,6 @@ td {
   margin-bottom: 10px;
   padding: 5px;
   text-align: center;
-  text-transform: uppercase;
   width: 272px;
   border-radius: 2px;
 }

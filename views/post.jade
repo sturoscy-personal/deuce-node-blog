@@ -22,10 +22,16 @@ div.container_12
 						h5 #{postWithId.title}
 					div#body
 						p #{postWithId.body}
-					- if (everyauth.loggedIn)
-						- if (everyauth.password)
-							div#comments
-								p.heavy Comment
+					div#comments
+						p.heavy Comments
+						- if (everyauth.loggedIn)
+							- if (everyauth.password)
+								form(action='/post', method='POST')
+									div#email
+										input(type='text', name='email', value='Email Address')
+									div#comment
+										textarea(name='comment', value='Comment')
+									input.button(type='submit', value='')
 				div.clear
 
 		div#user-column.grid_4

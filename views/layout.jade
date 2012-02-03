@@ -29,14 +29,14 @@ html(lang="en")
 					$("#login-with-password input:text")
 
 						.focusin(function() {
-							if ($(this).val() == "username") {
+							if ($(this).val() == "Username") {
 								$(this).val("");
 							}
 						})
 
 						.focusout(function() {
 							if ($(this).val() == "") {
-								$(this).val("username");
+								$(this).val("Username");
 							}
 						});
 

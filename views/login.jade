@@ -19,8 +19,8 @@ div.container_12
 			- else
 				div#login-with-password
 					img(src='images/login-title.png')
-					form(action='/login', method='post')
-						input(type='text', name=everyauth.password.loginFormFieldName, value='username')
+					form(action='/login', method='POST')
+						input(type='text', name=everyauth.password.loginFormFieldName, value='Username')
 						input(type='password', name=everyauth.password.passwordFormFieldName, value='password')
 						input.button(type='submit', value='')
 					p.italicize

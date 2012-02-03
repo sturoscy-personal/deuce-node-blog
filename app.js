@@ -99,6 +99,13 @@ app.get('/user/:userId/posts', function(req, res) {
   });
 });
 
+// GET the post page
+app.get('/add-post', function(req, res) {
+  res.render('add-post.jade', {
+    title: 'Add a Post'
+  });
+});
+
 mongooseAuth.helpExpress(app);
 
 app.listen(port);
