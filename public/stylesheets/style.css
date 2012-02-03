@@ -156,14 +156,12 @@ td {
   padding: 10px;
   border-radius: 5px;
 }
-#body #post-column #post #post-content #comments label,
-#body #post-column #post #post-content form label {
+#body #post-column #post #post-content #comments form label {
   display: block;
   margin-bottom: 10px;
   font-size: 2em;
 }
-#body #post-column #post #post-content #comments input,
-#body #post-column #post #post-content form input {
+#body #post-column #post #post-content #comments form input {
   border: 1px solid #ddd;
   height: 30px;
   font-size: 1.5em;
@@ -172,8 +170,7 @@ td {
   text-align: center;
   width: inherit;
 }
-#body #post-column #post #post-content #comments textarea,
-#body #post-column #post #post-content form textarea {
+#body #post-column #post #post-content #comments form textarea {
   border: 1px solid #ddd;
   font-size: 1.5em;
   height: 215px;
@@ -182,8 +179,7 @@ td {
   resize: none;
   width: 508px;
 }
-#body #post-column #post #post-content #comments input.button,
-#body #post-column #post #post-content form input.button {
+#body #post-column #post #post-content #comments form input.button {
   background: url("../images/form-register-button.gif") no-repeat;
   border: none;
   cursor: pointer;
