@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+	moment 	 = require('moment');
 
 var Schema   = mongoose.Schema,
 	ObjectId = Schema.ObjectId;
@@ -6,7 +7,8 @@ var Schema   = mongoose.Schema,
 var Comments = new Schema({
 	authorUserName	: String,
 	body			: String,
-	date 			: { type: Date, default: Date.now() }
+	date 			: { type: Date, default: Date.now() },
+	formattedDate	: String
 });
 	
 var PostSchema = new Schema({
@@ -25,7 +27,7 @@ var Post = mongoose.model('posts', PostSchema);
 
 var PostDataProvider = function(){};
 
-//Find all Posts
+//Post Objects
 PostDataProvider.prototype = {
 	findAll: function(callback) {
 		Post.find({}, function(err, posts) {
@@ -37,7 +39,17 @@ PostDataProvider.prototype = {
 		});
 	},
 	findById: function(id, callback) {
-		Post.findOne({'_id': id}, function(err, post) {
+		/*
+		Post.findOne({'_id': id}, function(err, post){
+			if (err) {
+				callback(err);
+			} else {
+				callback(post);	
+			}
+		});
+		*/
+
+		Post.findById(id, function(err, post) {
 			if (err) {
 				callback(err);
 			} else {
@@ -56,12 +68,15 @@ PostDataProvider.prototype = {
 	},
 	// Comments
 	addComment: function(commentObject, postID) {
-		var commentAuthorEmail 	= commentObject.email
+		var commentAuthorEmail 	= commentObject.email,
 			commentComment 		= commentObject.comment;
 
 		Post.findById(postID, function(err, post) {
-			if (!err) { 
-				post.comments.push({ authorUserName: commentAuthorEmail, body: commentComment });
+			if (!err) {
+				var now       = moment(Date.now()),
+    				formatNow = now.format('dddd, MMMM Do YYYY, h:mm:ss a');
+
+				post.comments.push({ authorUserName: commentAuthorEmail, body: commentComment, formattedDate: formatNow });
 				post.save(function (err) {
 					if (err) { 
 						console.log(err); 

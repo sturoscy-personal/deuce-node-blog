@@ -60,6 +60,9 @@ th,
 td {
   font-size: 1em;
 }
+hr {
+  border: 1px dotted #bbb;
+}
 /* End Document Layout */
 /* Document ID's */
 #header {
@@ -155,6 +158,12 @@ td {
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 5px;
+}
+#body #post-column #post #post-content #comments #comment {
+  margin-bottom: 10px;
+}
+#body #post-column #post #post-content #comments #comment #comment-meta img {
+  margin-right: 10px;
 }
 #body #post-column #post #post-content #comments h5 {
   color: #000;

@@ -26,8 +26,15 @@ div.container_12
 						p.heavy Comments
 						each comment, i in postWithId.comments
 							div#comment
-								p Comment from: <span class='heavy'>#{comment.authorUserName}</span>
-								h5 #{comment.body}
+								div#comment-meta.grid_3.alpha
+									img(align='left', src='/images/conversation.png')
+									p 
+										<span class='heavy'>#{comment.authorUserName}</span> said:
+									p 
+									|	on <span class='heavy'>#{comment.formattedDate}</span>
+								div#comment.grid_3.omega
+									p #{comment.body}
+								div.clear
 							hr
 						- if (everyauth.loggedIn)
 							- if (everyauth.password)

@@ -89,7 +89,7 @@ app.get('/user/:userId/posts', function(req, res) {
     authDataProvider.findLoggedIn(function(loggedInUsers) {
       var numUsers;
           numUsers = loggedInUsers.length;
-      res.render('user/posts.jade', {
+      res.render('user/posts', {
         title: 'User Posts',
         userPosts: userPosts,
         numUsers: numUsers,
@@ -99,14 +99,14 @@ app.get('/user/:userId/posts', function(req, res) {
   });
 });
 
-// GET the post page
+// GET the add post page
 app.get('/add-post', function(req, res) {
-  res.render('add-post.jade', {
+  res.render('add-post', {
     title: 'Add a Post'
   });
 });
 
-// Add a comment
+// Add (POST) a comment
 app.post('/post/:id', function(req, res) {
   var commentObject = req.body.comment,
       email         = commentObject.email,
