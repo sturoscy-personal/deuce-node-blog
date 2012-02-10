@@ -1,0 +1,29 @@
+div.container_12
+
+	div#header!=partial('includes/header.jade')
+	div.clear
+
+	div#body
+		div#post-form.grid_6
+			form(action='/add-post', method='POST')
+				div#email-input
+					input(type='text', name='post[email]', value='Email Address')
+				div#post-input
+					textarea(name='post[post]', value='Comment')
+				div.grid_3.alpha
+					div#category-input
+						input(type='text', name='post[category]', value='Category')
+				div.grid_3.omega
+					div(style='text-align: right;')#tag-input
+						input(type='text', name='post[tags]', value='tags, comma separated')
+				div.clear
+
+				input.button(type='submit', value='')
+		div#post-data.grid_6
+			p.heavy Last Updated:
+			p.heavy Category:
+			p.heavy Tags:
+		div.clear
+
+	div#footer.grid_12!=partial('includes/footer.jade')
+	div.clear

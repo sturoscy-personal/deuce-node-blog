@@ -106,6 +106,13 @@ app.get('/add-post', function(req, res) {
   });
 });
 
+// POST the post
+app.post('/add-post', function(req, res) {
+  var postObject = req.body.post;
+  PostDataProvider.addPost(postObject, function(){});
+  res.redirect('/add-post');
+});
+
 // Add (POST) a comment
 app.post('/post/:id', function(req, res) {
   var commentObject = req.body.comment,

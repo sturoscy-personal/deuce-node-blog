@@ -57,6 +57,10 @@ PostDataProvider.prototype = {
 			}
 		});
 	},
+	// Post
+	addPost: function(postObject) {
+		console.log(postObject);
+	},
 	// Comments
 	addComment: function(commentObject, postID) {
 		var commentAuthorEmail 	= commentObject.email,

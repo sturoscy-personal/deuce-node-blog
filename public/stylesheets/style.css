@@ -175,7 +175,7 @@ hr {
   font-size: 2em;
 }
 #body #post-column #post #post-content #comments form input {
-  border: 1px solid #ddd;
+  border: 1px solid #455683;
   height: 30px;
   font-size: 1.5em;
   margin-bottom: 10px;
@@ -184,7 +184,7 @@ hr {
   width: inherit;
 }
 #body #post-column #post #post-content #comments form textarea {
-  border: 1px solid #ddd;
+  border: 1px solid #455683;
   font-size: 1.5em;
   height: 215px;
   margin-bottom: 10px;
@@ -201,6 +201,35 @@ hr {
 #body #post-column #post #post-content p {
   margin-top: 0;
   text-align: justify;
+}
+#body #post-form form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+#body #post-form form input {
+  border: 1px solid #455683;
+  height: 30px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  padding: 5px;
+  text-align: center;
+  width: inherit;
+}
+#body #post-form form textarea {
+  border: 1px solid #455683;
+  font-size: 1.5em;
+  height: 215px;
+  margin-bottom: 10px;
+  padding: 5px;
+  resize: none;
+  width: 508px;
+}
+#body #post-form form input.button {
+  background: url("../images/form-register-button.gif") no-repeat;
+  border: none;
+  cursor: pointer;
+  width: 82px;
 }
 #body #user-column #user {
   border-top: 1px solid #bbb;
