@@ -20,6 +20,7 @@ var PostSchema = new Schema({
 	tags			: [String],
 	comments		: [Comments],
 	date_created	: { type: Date, default: Date.now() },
+	formatted_date	: String,
 	last_modified 	: Date
 });
 
@@ -39,16 +40,6 @@ PostDataProvider.prototype = {
 		});
 	},
 	findById: function(id, callback) {
-		/*
-		Post.findOne({'_id': id}, function(err, post){
-			if (err) {
-				callback(err);
-			} else {
-				callback(post);	
-			}
-		});
-		*/
-
 		Post.findById(id, function(err, post) {
 			if (err) {
 				callback(err);
@@ -74,7 +65,7 @@ PostDataProvider.prototype = {
 		Post.findById(postID, function(err, post) {
 			if (!err) {
 				var now       = moment(Date.now()),
-    				formatNow = now.format('dddd, MMMM Do YYYY, h:mm:ss a');
+					formatNow = now.format('dddd, MMMM Do YYYY, h:mm:ss a');
 
 				post.comments.push({ authorUserName: commentAuthorEmail, body: commentComment, formattedDate: formatNow });
 				post.save(function (err) {

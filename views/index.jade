@@ -21,7 +21,8 @@ div.container_12
 		div#post-header.grid_6.prefix_2
 			p Recent Entries
 		div#user-header.grid_4
-			p Twitter Updates from Admin
+			// p Twitter Updates from Admin
+			p Social Media and Subscriptions
 		div.clear
 
 		div#post-column.grid_8
@@ -29,9 +30,12 @@ div.container_12
 				div#post
 					div#meta-content.grid_2.alpha
 						ul
-							li #{post.date_created}
+							li Posted: #{post.formatted_date}
 							li In #{post.categories}
-							li 15 Comments
+							if post.comments.length > 1 || post.comments.length < 1
+								li #{post.comments.length} Comments
+							else
+								li #{post.comments.length} Comment
 					div#post-content.grid_6.omega
 						div#title
 							h5 
@@ -50,6 +54,7 @@ div.container_12
 				img(src='images/facebook.png')
 				img(src='images/linkedin.png')
 			div#twitter
+				p.heavy Twitter Updates
 				div#twitter-header
 					div#tweets
 			div#online-users
@@ -92,7 +97,7 @@ div.container_12
 									| <a target='_blank' href='/user/#{user.email}/posts'>#{user.email}</a>
 								li
 									span.heavy Last Login: 
-									| #{user.lastLogout}
+									| #{user.lastLogoutFormat}
 							- else
 								li
 									There are no users currently online.

@@ -159,8 +159,8 @@ hr {
   padding: 10px;
   border-radius: 5px;
 }
-#body #post-column #post #post-content #comments #comment {
-  margin-bottom: 10px;
+#body #post-column #post #post-content #comments hr {
+  margin-bottom: 25px;
 }
 #body #post-column #post #post-content #comments #comment #comment-meta img {
   margin-right: 10px;

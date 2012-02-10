@@ -1,5 +1,6 @@
 var mongoose     = require('mongoose'),
-    mongooseAuth = require('mongoose-auth');
+    mongooseAuth = require('mongoose-auth'),
+    moment       = require('moment');
 
 // Github user schema
 var Schema   = mongoose.Schema,
@@ -7,9 +8,11 @@ var Schema   = mongoose.Schema,
     
 var UserSchema = new Schema({
   isLoggedIn: { type: Boolean, default: false },
-  lastLogin:  Date,
-  lastLogout: Date,
-  keepAlive:  Date
+  lastLogin       : Date,
+  lastLoginFormat : String,
+  lastLogout      : Date,
+  lastLogoutFormat: String,
+  keepAlive       : Date
 }),
     User;
 
@@ -26,6 +29,11 @@ UserSchema.plugin(mongooseAuth, {
         if (req.user) {
           req.user.isLoggedIn = false;
           req.user.lastLogout = Date.now();
+
+          var now              = moment(Date.now());
+              formatLastLogout = now.format('dddd, MMMM Do YYYY, h:mm:ss a');
+          req.user.lastLogoutFormat = formatLastLogout;
+
           req.user.save(function (err, user) {
             if (err) errors.push(err.message || err);
           });
@@ -34,6 +42,11 @@ UserSchema.plugin(mongooseAuth, {
         if (req.foundUser) {
           req.foundUser.isLoggedIn = false;
           req.foundUser.lastLogout = Date.now();
+
+          var now              = moment(Date.now());
+              formatLastLogout = now.format('dddd, MMMM Do YYYY, h:mm:ss a');
+          req.foundUser.lastLogoutFormat = formatLastLogout;
+
           req.foundUser.save(function (err, foundUser) {
             if (err) errors.push(err.message || err);
           });
@@ -60,6 +73,11 @@ UserSchema.plugin(mongooseAuth, {
           if (foundUser) {
             foundUser.isLoggedIn = true;
             foundUser.lastLogin  = Date.now();
+
+            var now             = moment(Date.now());
+                formatLastLogin = now.format('dddd, MMMM Do YYYY, h:mm:ss a');
+                foundUser.lastLoginFormat = formatLastLogin;
+
             foundUser.save(function (err, foundUser) {
               if (err)
                 console.log(err);
@@ -92,6 +110,11 @@ UserSchema.plugin(mongooseAuth, {
           if (foundUser) {
             foundUser.isLoggedIn = true;
             foundUser.lastLogin  = Date.now();
+
+            var now             = moment(Date.now());
+                formatLastLogin = now.format('dddd, MMMM Do YYYY, h:mm:ss a');
+                foundUser.lastLoginFormat = formatLastLogin;
+
             foundUser.save(function (err, foundUser) {
               if (err)
                 console.log(err);
@@ -155,6 +178,10 @@ UserSchema.plugin(mongooseAuth, {
           // Update isLoggedIn and lastLogin
           user.isLoggedIn = true;
           user.lastLogin  = Date.now();
+
+          var now             = moment(Date.now());
+              formatLastLogin = now.format('dddd, MMMM Do YYYY, h:mm:ss a');
+              user.lastLoginFormat = formatLastLogin;
 
           // Save the Update
           user.save(function (err, user) {

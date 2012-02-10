@@ -14,9 +14,12 @@ div.container_12
 			div#post
 				div#meta-content.grid_2.alpha
 					ul
-						li #{postWithId.date_created}
+						li Posted: #{postWithId.formatted_date}
 						li In #{postWithId.categories}
-						li 15 Comments
+						if postWithId.comments.length > 1 || postWithId.comments.length < 1
+							li #{postWithId.comments.length} Comments
+						else
+							li #{postWithId.comments.length} Comment
 				div#post-content.grid_6.omega
 					div#title
 						h5 #{postWithId.title}
