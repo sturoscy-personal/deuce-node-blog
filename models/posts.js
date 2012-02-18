@@ -58,8 +58,29 @@ PostDataProvider.prototype = {
 		});
 	},
 	// Post
-	addPost: function(postObject) {
-		console.log(postObject);
+	addPost: function(postObject, userObject) {
+		var postUserName = userObject.email,
+			postRealName = userObject.name.first + " " + userObject.name.last;
+
+		var postTitle	 = postObject.title,
+			postBody	 = postObject.body,
+			postCategory = postObject.category,
+			postTags	 = postObject.tags;
+		
+		post = new Post();
+
+		post.authorUserName = postUserName;
+		post.authorRealName = postRealName;
+		post.title 			= postTitle;
+		post.body 			= postBody;
+		post.categories 	= postCategory;
+		post.tags 			= postTags;
+
+		post.save(function(err) {
+			if (err) console.log(err);
+		});
+
+		console.log(post);
 	},
 	// Comments
 	addComment: function(commentObject, postID) {

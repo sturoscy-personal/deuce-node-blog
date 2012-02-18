@@ -204,11 +204,21 @@ authDataProvider = function(){};
 // User Data Provider Methods
 authDataProvider.prototype = {
   findLoggedIn: function(callback) {
-    User.find({'isLoggedIn': true}, function(err, loggedInUsers) {
+    User.find({ 'isLoggedIn': true }, function(err, loggedInUsers) {
       if (err) {
         callback(err);
       } else {
         callback(loggedInUsers);
+      }
+    });
+  },
+
+  findUser: function(userId, callback) {
+    User.findOne({ 'email': userId }, function(err, user) {
+      if (err) {
+        callback(err);
+      } else {
+        callback(user);
       }
     });
   }

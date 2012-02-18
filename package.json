@@ -11,6 +11,7 @@
     , "mongoose-auth" : "0.0.11"
     , "mongoose-dbref": "0.0.2"
     , "moment"        : ">= 1.3.0"
+    , "rss"           : ">= 0.0.3"
     , "zlib"          : "1.0.5"
   }
 }

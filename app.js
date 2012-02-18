@@ -100,17 +100,23 @@ app.get('/user/:userId/posts', function(req, res) {
 });
 
 // GET the add post page
-app.get('/add-post', function(req, res) {
-  res.render('add-post', {
-    title: 'Add a Post'
+app.get('/add-post/:userId', function(req, res) {
+  authDataProvider.findUser(req.params.userId, function(user) {
+    res.render('add-post', {
+      title: 'Add a Post',
+      userObject: user
+    });
   });
 });
 
 // POST the post
-app.post('/add-post', function(req, res) {
-  var postObject = req.body.post;
-  PostDataProvider.addPost(postObject, function(){});
-  res.redirect('/add-post');
+app.post('/add-post/:userId', function(req, res) {
+  authDataProvider.findUser(req.params.userId, function(user) {
+    var postObject = req.body.post,
+        userObject = user;
+    PostDataProvider.addPost(postObject, userObject, function(){});
+    res.redirect('/add-post/' + req.params.userId);
+  });
 });
 
 // Add (POST) a comment

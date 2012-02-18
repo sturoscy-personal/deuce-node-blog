@@ -114,6 +114,69 @@ html(lang="en")
 								$(this).val("password");
 							}
 						});
+
+					// Comment Form Behavior
+					// Email
+					$("#comments #email-input input:text")
+
+						.focusin(function() {
+							if ($(this).val() == "Email Address") {
+								$(this).val("");
+							}
+						})
+
+						.focusout(function() {
+							if ($(this).val() == "") {
+								$(this).val("Email Address");
+							}
+						});
+
+					// Post Form Behavior
+					// Email
+					$("#post-form #email-input input:text")
+
+						.focusin(function() {
+							if ($(this).val() == "Email Address") {
+								$(this).val("");
+							}
+						})
+
+						.focusout(function() {
+							if ($(this).val() == "") {
+								$(this).val("Email Address");
+							}
+						});
+
+					// Category
+					$("#post-form #category-input input:text")
+
+						.focusin(function() {
+							if ($(this).val() == "Category") {
+								$(this).val("");
+							}
+						})
+
+						.focusout(function() {
+							if ($(this).val() == "") {
+								$(this).val("Category");
+							}
+						});
+
+					// Tags
+					$("#post-form #tag-input input:text")
+
+						.focusin(function() {
+							if ($(this).val() == "tags, comma separated") {
+								$(this).val("");
+							}
+						})
+
+						.focusout(function() {
+							if ($(this).val() == "") {
+								$(this).val("tags, comma separated");
+							}
+						});
+
 				});
 				
 	body!= body

@@ -5,11 +5,11 @@ div.container_12
 
 	div#body
 		div#post-form.grid_6
-			form(action='/add-post', method='POST')
-				div#email-input
-					input(type='text', name='post[email]', value='Email Address')
+			form(action='/add-post/#{userObject.email}', method='POST')
+				div#post-title
+					input(type='text', name='post[title]', value='Title')
 				div#post-input
-					textarea(name='post[post]', value='Comment')
+					textarea(name='post[body]', value='Comment')
 				div.grid_3.alpha
 					div#category-input
 						input(type='text', name='post[category]', value='Category')
