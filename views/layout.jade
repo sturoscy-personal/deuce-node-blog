@@ -11,6 +11,7 @@ html(lang="en")
 			script(src='/javascripts/featured-content.js')
 			script(src='/javascripts/jquery.tweet.js')
 			script(src='/javascripts/jquery.revolver.min.js')
+			script(src='/javascripts/ckeditor/ckeditor.js')
 			script
 				$(document).ready(function(){
 
@@ -132,18 +133,18 @@ html(lang="en")
 						});
 
 					// Post Form Behavior
-					// Email
-					$("#post-form #email-input input:text")
+					// Title
+					$("#post-form #title-input input:text")
 
 						.focusin(function() {
-							if ($(this).val() == "Email Address") {
+							if ($(this).val() == "Title") {
 								$(this).val("");
 							}
 						})
 
 						.focusout(function() {
 							if ($(this).val() == "") {
-								$(this).val("Email Address");
+								$(this).val("Title");
 							}
 						});
 
@@ -176,7 +177,6 @@ html(lang="en")
 								$(this).val("tags, comma separated");
 							}
 						});
-
 				});
 				
 	body!= body

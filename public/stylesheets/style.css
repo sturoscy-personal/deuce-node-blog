@@ -216,8 +216,12 @@ hr {
   text-align: center;
   width: inherit;
 }
+#body #post-form form #post-input {
+  margin-bottom: 25px;
+}
 #body #post-form form textarea {
   border: 1px solid #455683;
+  font-family: Arial, Verdana, sans-serif;
   font-size: 1.5em;
   height: 215px;
   margin-bottom: 10px;
@@ -375,6 +379,12 @@ hr {
   border-top: 1px solid #333;
 }
 /* End Document ID's */
+/* Errors */
+#error h1 {
+  font-size: 36px;
+  margin-bottom: 25px;
+  text-align: center;
+}
 /* Universal Classes */
 .bot-margin-none {
   margin-bottom: 0;

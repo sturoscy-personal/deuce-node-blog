@@ -98,6 +98,9 @@ div.container_12
 								li
 									span.heavy Last Login: 
 									| #{user.lastLogoutFormat}
+								li
+									a(href='/add-post/#{user.email}') db-admin
+
 							- else
 								li
 									There are no users currently online.

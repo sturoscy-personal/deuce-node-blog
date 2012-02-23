@@ -4,26 +4,39 @@ div.container_12
 	div.clear
 
 	div#body
-		div#post-form.grid_6
-			form(action='/add-post/#{userObject.email}', method='POST')
-				div#post-title
-					input(type='text', name='post[title]', value='Title')
-				div#post-input
-					textarea(name='post[body]', value='Comment')
-				div.grid_3.alpha
-					div#category-input
-						input(type='text', name='post[category]', value='Category')
-				div.grid_3.omega
-					div(style='text-align: right;')#tag-input
-						input(type='text', name='post[tags]', value='tags, comma separated')
-				div.clear
+		- if (!userObject.isLoggedIn)
+			div#error.grid_12
+				h1 You have to login or register to use db admin
+		- else
+			div#post-form.grid_6
+				form(action='/add-post/#{userObject.email}', method='POST')
+					div#title-input
+						input(type='text', name='post[title]', value='Title')
+					div#post-input
+						textarea#post-input-textarea(name='post[body]', value='Comment')
+					div.grid_3.alpha
+						div#category-input
+							input(type='text', name='post[category]', value='Category')
+					div.grid_3.omega
+						div(style='text-align: right;')#tag-input
+							input(type='text', name='post[tags]', value='tags, comma separated')
+					div.clear
 
-				input.button(type='submit', value='')
-		div#post-data.grid_6
-			p.heavy Last Updated:
-			p.heavy Category:
-			p.heavy Tags:
-		div.clear
+					input.button(type='submit', value='')
+			div#post-data.grid_6
+				p.heavy Last Updated:
+				p.heavy Category:
+				p.heavy Tags:
+			div.clear
 
 	div#footer.grid_12!=partial('includes/footer.jade')
 	div.clear
+script
+	$(document).ready(function() {
+		//CKEditor
+		CKEDITOR.replace('post-input-textarea',
+		{
+			resize_enabled: false,
+			toolbar: 'Basic'
+		});
+	})
