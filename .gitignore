@@ -1,4 +1,4 @@
 backup
 node_modules
 
-/models/mongo-conn.js
+models/mongo-conn.js
